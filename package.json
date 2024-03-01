@@ -1,0 +1,25 @@
+{
+  "name": "i_wozek_bot",
+  "version": "1.0.0",
+  "description": "Inventarization rolls bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TelariLove/I_Wozek_Bot.git"
+  },
+  "keywords": [
+    "bot",
+    "rolls",
+    "wozek",
+    "inventarization"
+  ],
+  "author": "Milok Murlyka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TelariLove/I_Wozek_Bot/issues"
+  },
+  "homepage": "https://github.com/TelariLove/I_Wozek_Bot#readme"
+}
