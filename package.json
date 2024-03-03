@@ -5,8 +5,8 @@
   "description": "Inventarization rolls bot",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon -r dotenv/config index.js"
+    "start": "node -r dotenv/config index.mjs",
+    "dev": "nodemon -r dotenv/config index.mjs"
   },
   "repository": {
     "type": "git",
