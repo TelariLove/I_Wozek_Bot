@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "nodemon": "^3.1.0"
   }
 }
