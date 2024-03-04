@@ -1,5 +1,4 @@
 import { bot } from './bot/connecting.mjs'
-import { message } from 'telegraf/filters'
 import './bot/commands.mjs'
 
 try {
@@ -7,11 +6,13 @@ try {
 		let data = JSON.parse(ctx.callbackQuery.data);
 		switch(data.type) {
 			case 'damaged':
+				ctx.session.damaged = true;
 				await ctx.editMessageText('❌', {
 					message_id: ctx.callbackQuery.message.message_id
 				});
 				break;
 			case 'fine':
+				ctx.session.damaged = false;
 				await ctx.editMessageText('✅', {
 					message_id: ctx.callbackQuery.message.message_id
 				});
