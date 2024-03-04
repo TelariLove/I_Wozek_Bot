@@ -1,9 +1,18 @@
 import { bot } from './bot/connecting.mjs'
 import './bot/commands.mjs'
 
+import { templatePage } from './bot/templates/templatePage.mjs';
+
 try {
 	bot.on('callback_query', async (ctx) => {
+		let statusIcon;
 		let data = JSON.parse(ctx.callbackQuery.data);
+		if(ctx.session.damaged) {
+			statusIcon = '❌';
+		} else {
+			statusIcon = '✅'
+		}
+
 		switch(data.type) {
 			case 'damaged':
 				ctx.session.damaged = true;
@@ -21,9 +30,16 @@ try {
 				await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
 				break;
 			case 'page':
-				await ctx.editMessageText('To bee continue.. next commit..', {
+				await ctx.editMessageText('Select rolls', {
+					...templatePage(data.data.from, data.data.to),
 					message_id: ctx.callbackQuery.message.message_id
 				});
+				break;
+			case 'check':
+				await ctx.editMessageText('To bee continue.. next commit..' + statusIcon, {
+					message_id: ctx.callbackQuery.message.message_id
+				});
+				break;
 		}
 	});
 
