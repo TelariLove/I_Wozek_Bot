@@ -1,9 +1,22 @@
 import { bot } from './bot/connecting.mjs'
 import { message } from 'telegraf/filters'
+import './bot/commands.mjs'
 
 try {
-	bot.on(message('text'), async (ctx) => {
-		await ctx.reply(ctx.message.text);
+	bot.on('callback_query', async (ctx) => {
+		let data = JSON.parse(ctx.callbackQuery.data);
+		switch(data.type) {
+			case 'damaged':
+				await ctx.editMessageText('❌', {
+					message_id: ctx.callbackQuery.message.message_id
+				});
+				break;
+			case 'fine':
+				await ctx.editMessageText('✅', {
+					message_id: ctx.callbackQuery.message.message_id
+				});
+				break;
+		}
 	});
 
 	if(process.env.BOT_TYPE == 'longpool') {
