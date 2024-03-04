@@ -1,13 +1,7 @@
-import { Telegraf } from 'telegraf'
+import { bot } from './bot/connecting.mjs'
 import { message } from 'telegraf/filters'
-let bot
 
-if(process.env.BOT_TOKEN === undefined) {
-	throw new Error('BOT TOKEN is undefined');
-}
 try {
-	bot = new Telegraf(process.env.BOT_TOKEN);
-
 	bot.on(message('text'), async (ctx) => {
 		await ctx.reply(ctx.message.text);
 	});
