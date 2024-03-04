@@ -17,6 +17,13 @@ try {
 					message_id: ctx.callbackQuery.message.message_id
 				});
 				break;
+			case 'close':
+				await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+				break;
+			case 'page':
+				await ctx.editMessageText('To bee continue.. next commit..', {
+					message_id: ctx.callbackQuery.message.message_id
+				});
 		}
 	});
 
