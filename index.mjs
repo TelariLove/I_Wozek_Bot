@@ -43,16 +43,17 @@ try {
 				});
 
 				logModel.add({
-					rollsId: data.data.id,
-					defected: ctx.session.damaged,
+					rolls: {
+						numer: data.data.id,
+						defected: ctx.session.damaged
+					},
 					user: {
 						id: ctx.callbackQuery.from.id,
 						isBot: ctx.callbackQuery.from.is_bot,
 						name: {
 							first: ctx.callbackQuery.from.first_name,
 							last: ctx.callbackQuery.from.last_name,
-						},
-						lastName: ctx.callbackQuery.from.last_name
+						}
 					},
 					messageId: ctx.callbackQuery.message.message_id
 				});
