@@ -1,5 +1,7 @@
 import { mongoose } from 'mongoose';
+import { userSchema } from './../user/userSchema.mjs';
 const Schema = mongoose.Schema;
+
 
 export const logSchema = new Schema({
 	rollsId: {
@@ -10,8 +12,8 @@ export const logSchema = new Schema({
 		type: Number,
 		required: true
 	},
-	userId: {
-		type: Number,
+	user: {
+		type: userSchema,
 		required: true
 	},
 	defective: {

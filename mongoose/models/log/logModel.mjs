@@ -11,11 +11,10 @@ export class LogModel extends Model {
 		this.model = this.mongoose.model(this.name, this.schema);
 	}
 
-	async add({messageId, userId, rollsId, defective = false}) {
-		console.log('start add rollse...', messageId, userId, rollsId, defective);
+	async add({messageId, user, rollsId, defective = false}) {
 		return await this.model.create({
 			messageId: messageId,
-			userId: userId,
+			user: user,
 			rollsId: rollsId,
 			defective: defective
 		}).then((result) => {
