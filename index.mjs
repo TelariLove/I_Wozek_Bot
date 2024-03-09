@@ -1,7 +1,7 @@
 import { bot } from './bot/connecting.mjs'
 import './bot/commands.mjs'
-
-import { templatePage } from './bot/templates/templatePage.mjs';
+import { logModel } from './mongoose/models/log/logModel.mjs'
+import { templatePage } from './bot/templates/templatePage.mjs'
 
 try {
 	bot.on('callback_query', async (ctx) => {
@@ -41,6 +41,14 @@ try {
 					damaged: ctx.session.damaged,
 					date: new Date()
 				});
+
+				logModel.add({
+					rollsId: data.data.id,
+					defected: ctx.session.damaged,
+					userId: 123,
+					messageId: ctx.callbackQuery.message.message_id
+				});
+				
 				await ctx.editMessageText(data.data.id + statusIcon, {
 					message_id: ctx.callbackQuery.message.message_id
 				});
