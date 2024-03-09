@@ -11,7 +11,9 @@ try {
 	bot = new Telegraf(process.env.BOT_TOKEN);
 	bot.use(session({
 		defaultSession: () => ({
-			damaged: false
+			damaged: false,
+			start: undefined,
+			logs: []
 		}) 
 	}));	
 } catch(e) {

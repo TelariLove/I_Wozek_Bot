@@ -4,8 +4,6 @@ export let command = 'start';
 export let description = 'let\' go start to inventory';
 export let start = {command, description};
 
-
-
 bot.command('start', async (ctx) => {
 	let start = new Date()
 	let reply = '';

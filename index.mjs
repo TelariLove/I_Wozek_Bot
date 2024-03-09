@@ -36,7 +36,12 @@ try {
 				});
 				break;
 			case 'check':
-				await ctx.editMessageText('To bee continue.. next commit..' + statusIcon, {
+				ctx.session.logs.push({
+					id: data.data.id,
+					damaged: ctx.session.damaged,
+					date: new Date()
+				});
+				await ctx.editMessageText(data.data.id + statusIcon, {
 					message_id: ctx.callbackQuery.message.message_id
 				});
 				break;
