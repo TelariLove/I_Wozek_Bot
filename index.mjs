@@ -77,6 +77,7 @@ try {
 // Webhook for aws
 export const handler = async (event, ctx, cb) => {
 	await bot.handleUpdate(JSON.parse(event.body));
+	ctx.callbackWaitsForEmptyEventLoop = false;
 
 	return cb(null, {
 		statusCode: 200,
