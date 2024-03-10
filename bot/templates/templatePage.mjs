@@ -7,11 +7,11 @@ export const templatePage = (from, to) => {
 
 	while (i <= to) {
 		buttons.push({
-			text: from,
+			text: i,
 			callback_data: JSON.stringify({
 				type: 'check',
 				data: {
-					id: from,
+					id: i,
 				},
 			}),
 		});
