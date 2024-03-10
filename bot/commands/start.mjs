@@ -9,6 +9,6 @@ bot.command('start', async (ctx) => {
 		await ctx.reply(`inventory has already begun ${ctx.session.inventory.start}`);
 	} else {
 		ctx.session.inventory.start = new Date();
-		await ctx.reply(`inventory starts now ${start}`);
+		await ctx.reply(`inventory starts now ${ctx.session.inventory.start}`);
 	}
 });
