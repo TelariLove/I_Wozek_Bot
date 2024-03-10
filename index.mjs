@@ -36,13 +36,12 @@ try {
 				});
 				break;
 			case 'check':
-				ctx.session.logs.push({
-					id: data.data.id,
-					damaged: ctx.session.damaged,
-					date: new Date()
+				ctx.session.inventory.rollsy.push({
+					numer: data.data.id,
+					defected: ctx.session.damaged
 				});
 
-				logModel.add({
+				await logModel.add({
 					rolls: {
 						numer: data.data.id,
 						defected: ctx.session.damaged

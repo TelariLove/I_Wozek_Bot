@@ -1,4 +1,3 @@
-import './connection.mjs';
 import { mongoose } from 'mongoose';
 
 export class Model {

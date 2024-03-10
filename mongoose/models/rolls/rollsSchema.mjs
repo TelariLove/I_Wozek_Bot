@@ -1,5 +1,4 @@
 import { mongoose } from 'mongoose';
-import { nameSchema } from './../name/nameSchema.mjs';
 const Schema = mongoose.Schema;
 
 export const rollsSchema = new Schema({
@@ -10,5 +9,4 @@ export const rollsSchema = new Schema({
 	defected: {
 		type: Boolean,
 		required: true,
-	}
-});
+	}}, { timestamps: true });

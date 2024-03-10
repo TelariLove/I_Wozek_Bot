@@ -12,8 +12,11 @@ try {
 	bot.use(session({
 		defaultSession: () => ({
 			damaged: false,
-			start: undefined,
-			logs: []
+			inventory: {
+				start: undefined,
+				end: undefined,
+				rollsy: []
+			}
 		}) 
 	}));	
 } catch(e) {
