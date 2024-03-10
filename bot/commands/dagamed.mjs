@@ -1,8 +1,8 @@
-import { bot } from './../connecting.mjs';
+import { bot } from '../connecting.mjs';
 
-export let command = 'damaged';
-export let description = 'rolls set status ❌ or ✅';
-export let damaged = {command, description}
+export const command = 'damaged';
+export const description = 'rolls set status ❌ or ✅';
+export const damaged = { command, description };
 
 bot.command('damaged', async (ctx) => {
 	await ctx.reply('rolls set status ❌ or ✅', {
@@ -11,16 +11,16 @@ bot.command('damaged', async (ctx) => {
 				[{
 					text: '❌',
 					callback_data: JSON.stringify({
-						type: 'damaged'
-					})
+						type: 'damaged',
+					}),
 				},
 				{
 					text: '✅',
 					callback_data: JSON.stringify({
-						type: 'fine'
-					})
-				}]
-			]
-		}
+						type: 'fine',
+					}),
+				}],
+			],
+		},
 	});
 });

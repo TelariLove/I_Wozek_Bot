@@ -1,6 +1,6 @@
 import { mongoose } from 'mongoose';
+import { MONGO_DB_NAME, MONGO_DB_CONNECTION_URL } from '../config.mjs';
 
-if(!process.env.MONGO_DB_NAME || !process.env.MONGO_DB_CONNECTION_URL)
-	throw Error('Bad connection to mongo db!')
+if (!MONGO_DB_NAME || !MONGO_DB_CONNECTION_URL) throw Error('Bad connection to mongo db!');
 
-mongoose.connect(process.env.MONGO_DB_CONNECTION_URL);
+mongoose.connect(MONGO_DB_CONNECTION_URL);

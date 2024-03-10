@@ -1,11 +1,11 @@
-import { bot } from './../connecting.mjs';
+import { bot } from '../connecting.mjs';
 
-export let command = 'help';
-export let description = 'See help';
-export let help = {	command, description };
+export const command = 'help';
+export const description = 'See help';
+export const help = { command, description };
 
 bot.help(async (ctx) => {
 	ctx.reply(
-		'Rolls set damaged or not — /damaged \n'
+		'Rolls set damaged or not — /damaged \n',
 	);
 });

@@ -1,8 +1,8 @@
-import { bot } from './../connecting.mjs';
+import { bot } from '../connecting.mjs';
 
-export let command = 'status';
-export let description = 'get status session';
-export let status = {command, description};
+export const command = 'status';
+export const description = 'get status session';
+export const status = { command, description };
 
 bot.command('status', async (ctx) => {
 	await ctx.reply(JSON.stringify(ctx.session));

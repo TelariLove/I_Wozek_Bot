@@ -1,9 +1,11 @@
-import { Model } from './../../Model.mjs';
+import { Model } from '../../Model.mjs';
 import { inventorySchema } from './inventorySchema.mjs';
 
 export class InventoryModel extends Model {
 	schema = inventorySchema;
+
 	name = 'inventory';
+
 	model;
 
 	constructor() {
@@ -11,14 +13,9 @@ export class InventoryModel extends Model {
 		this.model = this.mongoose.model(this.name, this.schema);
 	}
 
-	async add({rollsy, user, start, end}) {
-		return await this.model.create({
-			rollsy: rollsy,
-			user: user,
-			start: start,
-			end: end
-		});
+	async add(add) {
+		return await this.model.create(add);
 	}
 }
 
-export let inventoryModel = new InventoryModel();
+export const inventoryModel = new InventoryModel();

@@ -1,9 +1,11 @@
-import { Model } from './../../Model.mjs';
+import { Model } from '../../Model.mjs';
 import { logSchema } from './logSchema.mjs';
 
 export class LogModel extends Model {
 	schema = logSchema;
+
 	name = 'log';
+
 	model;
 
 	constructor() {
@@ -11,16 +13,10 @@ export class LogModel extends Model {
 		this.model = this.mongoose.model(this.name, this.schema);
 	}
 
-	async add({messageId, user, rolls, defective = false}) {
-		return await this.model.create({
-			messageId: messageId,
-			user: user,
-			rolls: rolls,
-			defective: defective
-		}).then((result) => {
-			return result;
-		});
+	async add(add) {
+		return await this.model.create(add);
 	}
 }
 
-export let logModel = new LogModel();
+export const logModel = new LogModel();
+export default { logModel, LogModel };

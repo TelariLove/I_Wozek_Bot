@@ -1,20 +1,23 @@
 import { mongoose } from 'mongoose';
-import { rollsSchema } from './../rolls/rollsSchema.mjs';
+import { rollsSchema } from '../rolls/rollsSchema.mjs';
 import { userSchema } from '../user/userSchema.mjs';
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 export const inventorySchema = new Schema({
 	rollsy: [rollsSchema],
 	user: {
 		type: userSchema,
-		required: true
+		required: true,
 	},
 	start: {
 		type: Date,
-		required: true
+		required: true,
 	},
 	end: {
 		type: Date,
-		required: true
-	}
+		required: true,
+	},
 }, { timestamps: true });
+
+export default { inventorySchema };

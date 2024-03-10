@@ -1,12 +1,14 @@
 import { mongoose } from 'mongoose';
+import { MONGO_DB_NAME } from '../config.mjs';
 
 export class Model {
 	mongoose = mongoose;
-	db = process.env.MONGO_DB_NAME
+
+	db = MONGO_DB_NAME;
+
 	name;
+
 	schema;
-	
-	constructor() {
-		return;
-	}
 }
+
+export default { Model };

@@ -1,11 +1,14 @@
 import { mongoose } from 'mongoose';
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 export const nameSchema = new Schema({
 	first: {
-		type: String
+		type: String,
 	},
 	last: {
 		type: String,
-	}
+	},
 });
+
+export default { nameSchema };

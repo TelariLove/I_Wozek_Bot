@@ -1,24 +1,19 @@
-import { Telegraf } from 'telegraf'
-import {session} from 'telegraf/session'
+import { Telegraf } from 'telegraf';
+import { session } from 'telegraf/session';
+import { BOT_TOKEN } from '../config.mjs';
 
-export let bot;
+const bot = new Telegraf(BOT_TOKEN);
 
-try {
-	if(process.env.BOT_TOKEN === undefined) {
-		throw new Error('BOT TOKEN is undefined');
-	}
+bot.use(session({
+	defaultSession: () => ({
+		damaged: false,
+		inventory: {
+			start: undefined,
+			end: undefined,
+			rollsy: [],
+		},
+	}),
+}));
 
-	bot = new Telegraf(process.env.BOT_TOKEN);
-	bot.use(session({
-		defaultSession: () => ({
-			damaged: false,
-			inventory: {
-				start: undefined,
-				end: undefined,
-				rollsy: []
-			}
-		}) 
-	}));	
-} catch(e) {
-	throw new Error('Telegram connection failure!')
-}
+export { bot };
+export default { bot };

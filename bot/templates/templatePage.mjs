@@ -1,21 +1,22 @@
 import _ from 'lodash';
-import {templateCloseButton} from './templateCloseButton.mjs';
+import { templateCloseButton } from './templateCloseButton.mjs';
 
-export let templatePage = (from, to) => {
+export const templatePage = (from, to) => {
+	let i = from;
 	let buttons = [];
 
-	while(from <= to) {
+	while (i <= to) {
 		buttons.push({
 			text: from,
 			callback_data: JSON.stringify({
 				type: 'check',
 				data: {
-					id: from
-				}
-			})
-		})
+					id: from,
+				},
+			}),
+		});
 
-		from++;
+		i += 1;
 	}
 
 	buttons = _.chunk(buttons, 5);
@@ -24,8 +25,10 @@ export let templatePage = (from, to) => {
 		reply_markup: {
 			inline_keyboard: [
 				[templateCloseButton],
-				...buttons
-			]
-		}
-	}
+				...buttons,
+			],
+		},
+	};
 };
+
+export default { templatePage };

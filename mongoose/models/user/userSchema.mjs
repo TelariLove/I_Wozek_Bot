@@ -1,12 +1,12 @@
 import { mongoose } from 'mongoose';
-import { nameSchema } from './../name/nameSchema.mjs';
-const Schema = mongoose.Schema;
+import { nameSchema } from '../name/nameSchema.mjs';
 
+const { Schema } = mongoose;
 
 export const userSchema = new Schema({
 	id: {
 		type: Number,
-		required: true
+		required: true,
 	},
 	name: {
 		type: nameSchema,
@@ -14,6 +14,8 @@ export const userSchema = new Schema({
 	},
 	isBot: {
 		type: Boolean,
-		required: true
+		required: true,
 	},
 });
+
+export default { userSchema };
