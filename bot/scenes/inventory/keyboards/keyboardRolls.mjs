@@ -32,7 +32,7 @@ export const keyboardRolls = (opts) => {
 	});
 
 	return Markup.keyboard([
-		[buttonIsDefected(defected), '♥️'],
+		[buttonIsDefected(!defected), '♥️'],
 		..._.chunk(buttons, 5),
 	]).oneTime().resize();
 };

@@ -1,5 +1,5 @@
 export const buttonIsDefected = (defected = false) => {
-	if (defected) return '✅';
+	if (!defected) return '✅';
 	return '❌';
 };
 export default { buttonIsDefected };
