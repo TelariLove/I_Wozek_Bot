@@ -18,11 +18,11 @@ export const keyboardRolls = (opts) => {
 		if (el.numer <= to && el.numer >= from) {
 			let text;
 			if (el.defected === false) {
-				text = '[❌]';
+				text = '[✅]';
 			}
 
 			if (el.defected === true) {
-				text = '[✅]';
+				text = '[❌]';
 			}
 
 			buttons[el.numer - from] = text;
