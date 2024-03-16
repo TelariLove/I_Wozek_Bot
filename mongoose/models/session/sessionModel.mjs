@@ -2,16 +2,7 @@ import { Model } from '../../Model.mjs';
 import { sessionSchema } from './sessionSchema.mjs';
 
 export class SessionModel extends Model {
-	schema = {
-		key: {
-			type: String,
-			required: true,
-		},
-		session: {
-			type: sessionSchema,
-			required: true,
-		},
-	};
+	schema = sessionSchema;
 
 	name = 'session';
 

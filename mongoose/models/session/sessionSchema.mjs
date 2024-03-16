@@ -1,19 +1,15 @@
 import { mongoose } from 'mongoose';
-import { inventorySchema } from '../inventory/inventorySchema.mjs';
-import { userSchema } from '../user/userSchema.mjs';
 
 const { Schema } = mongoose;
 
 export const sessionSchema = new Schema({
-	inventory: {
-		type: inventorySchema,
+	key: {
+		type: String,
+		required: true,
 	},
-	user: {
-		type: userSchema,
-	},
-	damaged: {
-		type: Boolean,
-		default: false,
+	session: {
+		type: Object,
+		required: true,
 	},
 }, { timestamps: true });
 
