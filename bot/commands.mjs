@@ -5,4 +5,4 @@ import { pagination } from './commands/pagination.mjs';
 import { help } from './commands/help.mjs';
 import { status } from './commands/status.mjs';
 
-bot.telegram.setMyCommands([start, end, damaged, pagination, help, status]);
+bot.telegram.setMyCommands([start, pagination, help, status]);
